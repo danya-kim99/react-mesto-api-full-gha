@@ -17,7 +17,11 @@ module.exports.getMe = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь с данным id не найден');
       }
-      res.send({ name: user.name, about: user.about, avatar: user.avatar });
+      res.send({
+        data: {
+          _id: user._id, name: user.name, about: user.about, avatar: user.avatar, email: user.email,
+        },
+      });
     })
     .catch(next);
 };
@@ -97,7 +101,7 @@ module.exports.login = (req, res, next) => {
       res.cookie('jwt', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
-      }).send({ message: 'Добро пожаловать!' });
+      }).send({ message: 'Добро пожаловать!', token });
     })
     .catch(next);
 };

@@ -18,7 +18,8 @@ class Api {
         method: 'GET',
         headers: {
           authorization: this._token
-        }
+        },
+        credentials: 'include',
       })
       .then(res => {
         return this._getResponseData(res, 'Не удалось загрузить информацию.')
@@ -32,6 +33,7 @@ class Api {
           authorization: this._token,
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({
           name: values.name,
           link: values.link
@@ -47,7 +49,8 @@ class Api {
         method: 'DELETE',
         headers: {
           authorization: this._token
-        }
+        },
+        credentials: 'include',
       })
       .then(res => {
         return this._getResponseData(res, 'Не удалось удалить карточку.')
@@ -59,7 +62,8 @@ class Api {
         method: 'PUT',
         headers: {
           authorization: this._token
-        }
+        },
+        credentials: 'include',
       })
       .then(res => {
         return this._getResponseData(res, 'Не удалось поставить лайк.')
@@ -71,7 +75,8 @@ class Api {
         method: 'DELETE',
         headers: {
           authorization: this._token
-        }
+        },
+        credentials: 'include',
       })
       .then(res => {
         return this._getResponseData(res, 'Не удалось удалить лайк.')
@@ -89,7 +94,8 @@ class Api {
         method: 'GET',
         headers: {
           authorization: this._token
-        }
+        },
+        credentials: 'include',
       })
       .then(res => {
         return this._getResponseData(res, 'Не удалось получить информацию о профиле.')
@@ -103,6 +109,7 @@ class Api {
           authorization: this._token,
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({
           name: values.name,
           about: values.about
@@ -120,6 +127,7 @@ class Api {
           authorization: this._token,
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({
           avatar: values.link
         })
