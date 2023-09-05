@@ -1,0 +1,12 @@
+.element__number-of-likes {
+  margin: 3px 0 0 0;
+  width: 10px;
+  height: 13px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  padding: 3%;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+}

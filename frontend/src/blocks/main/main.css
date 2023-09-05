@@ -1,0 +1,6 @@
+.main {
+  max-width: 880px;
+  margin: 0 auto 0;
+  box-sizing: padding-box;
+  padding: 0 2%;
+}

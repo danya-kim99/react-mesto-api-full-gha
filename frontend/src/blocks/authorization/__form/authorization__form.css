@@ -1,0 +1,7 @@
+.authorization__form {
+    max-width: 358px;
+    min-height: 583px;
+    margin: 60px 0 80px;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,6 @@
+.authorization {
+    max-width: 358px;
+    margin: 65px auto 0;
+    display: flex;
+    flex-direction: column;
+}

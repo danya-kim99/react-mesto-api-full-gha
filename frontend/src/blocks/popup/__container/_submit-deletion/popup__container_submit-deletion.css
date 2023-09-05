@@ -1,0 +1,7 @@
+@media screen and (max-width: 450px) {
+  .popup__container_submit-deletion {
+    width: 282px;
+    height: 160px;
+    padding: 22px;
+  }
+}

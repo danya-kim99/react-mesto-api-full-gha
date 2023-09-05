@@ -1,0 +1,13 @@
+.element {
+  position: relative;
+  height: 361px;
+  width: 282px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 3%;
+  overflow: hidden;
+  justify-content: space-between;
+}
