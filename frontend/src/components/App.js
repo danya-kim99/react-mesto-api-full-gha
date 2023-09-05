@@ -41,7 +41,7 @@ function tokenCheck() {
     .checkToken(token)
     .then((res) => {
       if (res) {
-        setEmail(res.data.email)
+        setEmail(res.email)
         setloggedIn(true);
         navigate("/", {replace: true})
       }
@@ -54,12 +54,12 @@ function tokenCheck() {
     api
       .getProfileInfo()
       .then((data) => {
-        setCurrentUser(data.data)
+        setCurrentUser(data)
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [loggedIn]);
 
   React.useEffect(() => {
     api

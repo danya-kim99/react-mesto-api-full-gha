@@ -21,6 +21,7 @@ module.exports.createCard = (req, res, next) => {
         .catch(next);
     })
     .catch((err) => {
+      console.log(err.message);
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Невалидные параметры запроса'));
       } else {

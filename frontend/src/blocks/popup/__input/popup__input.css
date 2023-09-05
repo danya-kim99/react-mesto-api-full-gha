@@ -12,3 +12,8 @@
     margin-bottom: 40px;
   }
 }
+
+.popup__input:focus,
+input:focus {
+  color: #000;
+}

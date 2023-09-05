@@ -17,11 +17,9 @@ module.exports.getMe = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь с данным id не найден');
       }
-      res.send({
-        data: {
-          id: user._id, name: user.name, about: user.about, avatar: user.avatar, email: user.email,
-        },
-      });
+      res.send(
+        user,
+      );
     })
     .catch(next);
 };
@@ -68,7 +66,7 @@ module.exports.patchUser = (req, res, next) => {
   const { name, about } = req.body;
 
   User.findByIdAndUpdate(req.user._id, { name, about }, { new: true, runValidators: true })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Невалидные параметры запроса'));
