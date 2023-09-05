@@ -22,6 +22,7 @@ function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onC
         <div className="profile__info">
           <h1 className="profile__name">
             {currentUser ? currentUser.name : "Вы прекрасны"}
+            {console.log(currentUser)}
           </h1>
           <button
             type="button"

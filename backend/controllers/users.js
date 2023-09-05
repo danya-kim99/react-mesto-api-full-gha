@@ -19,7 +19,7 @@ module.exports.getMe = (req, res, next) => {
       }
       res.send({
         data: {
-          _id: user._id, name: user.name, about: user.about, avatar: user.avatar, email: user.email,
+          id: user._id, name: user.name, about: user.about, avatar: user.avatar, email: user.email,
         },
       });
     })

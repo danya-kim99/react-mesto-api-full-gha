@@ -54,7 +54,7 @@ function tokenCheck() {
     api
       .getProfileInfo()
       .then((data) => {
-        setCurrentUser(data)
+        setCurrentUser(data.data)
       })
       .catch((error) => {
         console.error(error);
