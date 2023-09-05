@@ -25,7 +25,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 
 app.use(requestLogger);
 
-app.use(cors({ credentials: true, origin: 'https://dkim99.students.nomoredomainsicu.ru/' }));
+app.use(cors({ credentials: true, origin: 'https://dkim99.students.nomoredomainsicu.ru' }));
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
