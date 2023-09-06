@@ -21,7 +21,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
   const [isAuthorizationPopupOpen, setIsAuthorizationPopupOpen] =
-    React.useState(false);  
+    React.useState(false);
   const [currentUser, setCurrentUser] = React.useState(null);
   const [cards, setCards] = React.useState([]);
   const [selectedCard, setSelectedCard] = React.useState(null);
@@ -29,25 +29,25 @@ function App() {
   const [isSuccess, setisSuccess] = React.useState(null);
   const [loggedIn, setloggedIn] = React.useState(null);
   const navigate = useNavigate();
-  
+
   React.useEffect(() => {
-  tokenCheck();
+    tokenCheck();
   }, [])
 
-function tokenCheck() {
-  if (localStorage.getItem('token')){
-    const token = localStorage.getItem('token');
-    authApi
-    .checkToken(token)
-    .then((res) => {
-      if (res) {
-        setEmail(res.email)
-        setloggedIn(true);
-        navigate("/", {replace: true})
-      }
-    })
+  function tokenCheck() {
+    if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      authApi
+        .checkToken(token)
+        .then((res) => {
+          if (res) {
+            setEmail(res.email)
+            setloggedIn(true);
+            navigate("/", { replace: true })
+          }
+        })
+    }
   }
- } 
 
   React.useEffect(() => {
     api
@@ -165,7 +165,23 @@ function tokenCheck() {
 
   function handleLogin(emailValue) {
     setloggedIn(true);
-    setEmail(emailValue)
+    setEmail(emailValue);
+    api
+      .getProfileInfo()
+      .then((data) => {
+        setCurrentUser(data)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    api
+      .getInitialCards()
+      .then((data) => {
+        setCards(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   function handleLogout() {
@@ -191,8 +207,8 @@ function tokenCheck() {
             email={email}
             loggedIn={loggedIn}
           />} />
-          <Route path="/sign-in" element={<Login onLogin={handleLogin}/>}></Route>
-          <Route path="/sign-up" element={<Register openAuthorizationPopup={handleAuthorization} handleAuthorizationChangeStatus={handleAuthorizationChangeStatus}/>}></Route>
+          <Route path="/sign-in" element={<Login onLogin={handleLogin} />}></Route>
+          <Route path="/sign-up" element={<Register openAuthorizationPopup={handleAuthorization} handleAuthorizationChangeStatus={handleAuthorizationChangeStatus} />}></Route>
           <Route path="*" element={<Navigate to="/" replace />}></Route>
         </Routes>
 
