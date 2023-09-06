@@ -1,4 +1,3 @@
 export const apiOptions = {
-  baseUrl: 'https://api.dkim99.students.nomoredomainsicu.ru'
+  baseUrl: 'http://localhost:3001'
 }
-export const formValidators = {};

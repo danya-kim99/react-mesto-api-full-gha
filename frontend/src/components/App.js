@@ -41,14 +41,13 @@ function tokenCheck() {
     .checkToken(token)
     .then((res) => {
       if (res) {
-        setEmail(res.data.email)
+        setEmail(res.email)
         setloggedIn(true);
         navigate("/", {replace: true})
       }
     })
   }
  } 
-  
 
   React.useEffect(() => {
     api
@@ -93,7 +92,7 @@ function tokenCheck() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     api
       .changeLikeCardStatus(card._id, isLiked)

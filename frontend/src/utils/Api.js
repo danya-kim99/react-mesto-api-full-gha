@@ -3,7 +3,6 @@ import { apiOptions } from "./constants";
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl
-    this._token = options.token
   }
 
   _getResponseData(res, errorText) {
@@ -17,7 +16,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
         method: 'GET',
         headers: {
-          authorization: this._token
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
       .then(res => {
@@ -29,7 +28,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
         method: 'POST',
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -46,7 +45,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}`, {
         method: 'DELETE',
         headers: {
-          authorization: this._token
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
       .then(res => {
@@ -58,7 +57,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
         method: 'PUT',
         headers: {
-          authorization: this._token
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
       .then(res => {
@@ -70,7 +69,7 @@ class Api {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
         method: 'DELETE',
         headers: {
-          authorization: this._token
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
       .then(res => {
@@ -88,7 +87,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
         method: 'GET',
         headers: {
-          authorization: this._token
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
       .then(res => {
@@ -100,7 +99,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me`, {
         method: 'PATCH',
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -117,7 +116,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
         method: 'PATCH',
         headers: {
-          authorization: this._token,
+          authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

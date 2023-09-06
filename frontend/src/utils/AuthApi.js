@@ -27,7 +27,6 @@ import { apiOptions } from "./constants";
 
     authorize(password, email) {
       return fetch(`${this._baseUrl}/signin`, {
-      credentials: "include",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -38,6 +37,22 @@ import { apiOptions } from "./constants";
           return this._getResponseData(res, 'Не удалось авторизоваться.')
         });
     }
+    
+    checkToken() {
+      return fetch(`${this._baseUrl}/users/me`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization" : `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+        .then(res => {
+          return this._getResponseData(res, 'Не удалось авторизоваться.')
+        });
+    }
+
   }
+
+  
 
   export const authApi = new AuthApi(apiOptions)

@@ -14,7 +14,14 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner: req.user._id })
-    .then((card) => res.status(201).send(card))
+    .then((card) => res.status(201).send({
+      createdAt: card.createdAt,
+      likes: card.likes,
+      link: card.link,
+      name: card.name,
+      _id: card._id,
+      owner: { _id: card.owner },
+    }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Невалидные параметры запроса'));
