@@ -1,3 +1,3 @@
 export const apiOptions = {
-  baseUrl: 'https://dkim99.students.nomoredomainsicu.ru'
+  baseUrl: 'https://api.dkim99.students.nomoredomainsicu.ru'
 }

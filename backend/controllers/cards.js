@@ -61,7 +61,14 @@ module.exports.likeCard = (req, res, next) => {
   )
     .orFail(new NotFoundError('Запрашиваемая карточка не найдена'))
     .then((card) => {
-      res.send(card);
+      res.send({
+        createdAt: card.createdAt,
+        likes: card.likes,
+        link: card.link,
+        name: card.name,
+        _id: card._id,
+        owner: { _id: card.owner },
+      });
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -80,7 +87,14 @@ module.exports.dislikeCard = (req, res, next) => {
   )
     .orFail(new NotFoundError('Запрашиваемая карточка не найдена'))
     .then((card) => {
-      res.send(card);
+      res.send({
+        createdAt: card.createdAt,
+        likes: card.likes,
+        link: card.link,
+        name: card.name,
+        _id: card._id,
+        owner: { _id: card.owner },
+      });
     })
     .catch((err) => {
       if (err.name === 'CastError') {
