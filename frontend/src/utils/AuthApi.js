@@ -1,6 +1,8 @@
+import { apiOptions } from "./constants";  
+  
   class AuthApi {
-    constructor() {
-      this._baseUrl = 'https://auth.nomoreparties.co'
+    constructor(options) {
+      this._baseUrl = options.baseUrl
     }
 
     _getResponseData(res, errorText) {
@@ -11,7 +13,7 @@
     }
 
     register(password, email) {
-      return fetch(`https://auth.nomoreparties.co/signup`, {
+      return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,7 +26,8 @@
     }
 
     authorize(password, email) {
-      return fetch(`https://auth.nomoreparties.co/signin`, {
+      return fetch(`${this._baseUrl}/signin`, {
+      credentials: "include",
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -35,22 +38,6 @@
           return this._getResponseData(res, 'Не удалось авторизоваться.')
         });
     }
-
-    checkToken(token) {
-      return fetch(`https://auth.nomoreparties.co/users/me`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization" : `Bearer ${token}`
-      }
-    })
-        .then(res => {
-          return this._getResponseData(res, 'Не удалось авторизоваться.')
-        });
-    }
-
-
-    
   }
 
-  export const authApi = new AuthApi()
+  export const authApi = new AuthApi(apiOptions)

@@ -12,8 +12,7 @@ const cardSchema = new mongoose.Schema({
   link: {
     type: String,
     required: [true, 'Поле "link" должно быть заполнено'],
-    minlength: [2, 'Минимальная длина поля "name" - 2'],
-    maxlength: [30, 'Максимальная длина поля "name" - 30'],
+    minlength: [2, 'Минимальная длина поля "link" - 2'],
     validate: {
       validator: (v) => regex.test(v),
       message: 'Некорректный URL',
