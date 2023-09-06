@@ -9,8 +9,6 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
-
-Frontend https://...
-
-Backend https://...
+IP 158.160.14.83
+Frontend  https://dkim99.students.nomoredomainsicu.ru/
+Backend  https://api.dkim99.students.nomoredomainsicu.ru/
