@@ -3,6 +3,7 @@
   min-height: 762px;
   display: flex;
   flex-wrap: wrap;
+  gap: 17px;
   justify-content: space-around;
 }
 

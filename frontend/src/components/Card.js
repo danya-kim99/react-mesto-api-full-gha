@@ -15,7 +15,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
   const handleDeleteClick = () => {
     onCardDelete(card);
   }
-  
+
   const isOwn = card.owner._id === user._id;
   const isLiked = card.likes.some(i => i === user._id);
   const cardLikeButtonClassName = ( 
@@ -26,7 +26,7 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
     <div className="element" key={card._id}>
       <img
         className="element__image"
-        style={{ backgroundImage: `url(${card.link})` }}
+        style={{ backgroundImage: `url(${card.link})`, backgroundSize: "cover" }}
         onClick={handleCardClick}
       />
       <h2 className="element__title">{card.name}</h2>
