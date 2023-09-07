@@ -22,7 +22,7 @@ function App() {
     React.useState(false);
   const [isAuthorizationPopupOpen, setIsAuthorizationPopupOpen] =
     React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState('');
   const [cards, setCards] = React.useState([]);
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [email, setEmail] = React.useState(null);

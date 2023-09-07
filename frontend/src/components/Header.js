@@ -18,7 +18,7 @@ function Header({email, logout}) {
       { location.pathname === '/sign-in' && <Link className={"header__link"} to="/sign-up">Регистрация</Link> }
       { location.pathname === '/' && <div style={{display: "flex"}}>
         <p className="header__user-email">{email}</p>
-        && <a className={"header__link"} onClick={signOut}>Выйти</a>
+        <a className={"header__link"} onClick={signOut}>Выйти</a>
       </div> }
       </header>
   );

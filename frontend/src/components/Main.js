@@ -42,7 +42,7 @@ function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onC
         <div className="spinner"></div>
         <section className="elements">
           <div className="spinner"></div>
-          {cards.map((card) => (
+          {cards.toReversed().map((card) => (
             <Card card={card} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete} key={card._id}/>
           ))}
         </section>
