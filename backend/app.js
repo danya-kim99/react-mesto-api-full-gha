@@ -17,7 +17,6 @@ const {
   login, createUser,
 } = require('./controllers/users');
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

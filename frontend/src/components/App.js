@@ -147,7 +147,7 @@ function App() {
     api
       .postCard(card)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([...cards, newCard]);
         closeAllPopups();
       })
       .catch((err) => {
