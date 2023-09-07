@@ -15,7 +15,7 @@ function EditAvatarPopup({
         e.preventDefault();
 
         onUpdateAvatar({
-            link: avatarRef.current
+            link: avatarRef.current.value
         });
     }
 

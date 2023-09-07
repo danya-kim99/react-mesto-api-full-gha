@@ -6,7 +6,7 @@ import { authApi } from "../utils/AuthApi";
 import { useNavigate } from "react-router-dom";
 
 
-function Login({onLogin}) {
+function Login({ onLogin, openAuthorizationPopup, handleAuthorizationChangeStatus }) {
   const [formValue, setFormValue] = useState({
     password: '',
     email: ''
@@ -24,6 +24,8 @@ function Login({onLogin}) {
         navigate('/', {replace: true});
       })
       .catch((error) => {
+        handleAuthorizationChangeStatus(false);
+        openAuthorizationPopup();
         console.error(error);
       })
     }

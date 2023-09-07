@@ -207,7 +207,7 @@ function App() {
             email={email}
             loggedIn={loggedIn}
           />} />
-          <Route path="/sign-in" element={<Login onLogin={handleLogin} />}></Route>
+          <Route path="/sign-in" element={<Login onLogin={handleLogin} openAuthorizationPopup={handleAuthorization} handleAuthorizationChangeStatus={handleAuthorizationChangeStatus} />}></Route>
           <Route path="/sign-up" element={<Register openAuthorizationPopup={handleAuthorization} handleAuthorizationChangeStatus={handleAuthorizationChangeStatus} />}></Route>
           <Route path="*" element={<Navigate to="/" replace />}></Route>
         </Routes>
